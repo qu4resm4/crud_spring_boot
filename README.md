@@ -39,11 +39,24 @@ public enum Especializacao {
 ```
 ## Como testar?
 
-### 1. Instale as dependências
+### 1. Instale as dependências e crie o banco de dados antes de iniciar o projeto
 Certifique-se de ter o Maven instalado e execute o comando:  
 ```bash
 mvn install
 ```
+Crie um banco de dados PostgreSQL nomeado como *teste_alura*:
+```sql
+CREATE DATABASE teste_alura;
+```
+
+Ou altere as informações de conxeão com o DB no arquivo *application.properties*):
+```application.properties
+spring.datasource.url=jdbc:postgresql://127.0.0.1:5432/teste_alura //*ESTE É UM EXEMPLO DE COMO DEVE ESTAR NO SEU PROJETO*
+spring.datasource.username=*INSIRA O USUÁIO UTILIZADO PARA FAZER A CONEXÃO*
+spring.datasource.password=*INSIRA A SUA SENHA DA CONEXÃO*
+```
+
+O flyway ficará encarregado de criar as tabelas no banco de dados utilizando as migrations salvas.
 
 ### 2. Crie um usuário
 Utilize a rota POST /cadastro para criar um novo usuário.
